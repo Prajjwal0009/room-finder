@@ -13,13 +13,13 @@ const Dashboard = () => {
           RoomFinder
         </div>
         <div className='flex gap-4 ml-10 w-full'>
-          <div>
+          <div className='cursor-pointer' onClick={()=> navigate('home')}>
             Home
           </div>
-          <div>
+          <div className='cursor-pointer' onClick={()=> navigate('aboutus')}>
             About
           </div>
-          <div>
+          <div className='cursor-pointer' onClick={()=> navigate('contact')}>
             Contact Us
           </div>
         </div>
@@ -33,8 +33,9 @@ const Dashboard = () => {
             onClickSignup={() => navigate('/signup')}
           />
         </div>
-
       </div>
+<Outlet/>
+
     </>
   )
 }
