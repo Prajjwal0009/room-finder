@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
-import PopoverDemo from '../Reuseable/Dropdown';
+import Dropdown from '../Reuseable/Dropdown';
 
 
 const Dashboard = () => {
@@ -24,11 +24,14 @@ const Dashboard = () => {
           </div>
         </div>
         <div className='w-full'>
-          <input type='search' placeholder='searchHere'/>
+          <input type='search' placeholder='searchHere' />
         </div>
-       <div><p className='text-gray-400 w-full'>Contact:anujmainali200@gmail.com/9876543210</p></div> 
+        <div><p className='text-gray-400 w-full'>Contact:anujmainali200@gmail.com/9876543210</p></div>
         <div className='ml-10 w-full'>
-         <PopoverDemo/>
+          <Dropdown
+            onClick={() => navigate('/login')}
+            onClickSignup={() => navigate('/signup')}
+          />
         </div>
 
       </div>
