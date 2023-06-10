@@ -1,0 +1,10 @@
+<svg className="hover:fill-current hover:text-red-500" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+<g clip-path="url(#clip0_1107_350)">
+<path d="M12.0417 7.08337H4.95833V8.50004H12.0417V7.08337ZM14.875 2.12504H12.75V0.708374H11.3333V2.12504H5.66667V0.708374H4.25V2.12504H2.125V14.875H14.875V2.12504ZM13.4583 13.4584H3.54167V5.66671H13.4583V13.4584ZM9.91667 9.91671H4.95833V11.3334H9.91667V9.91671Z" fill="#37474F"/>
+</g>
+<defs>
+<clipPath id="clip0_1107_350">
+<rect width="17" height="17" fill="white"/>
+</clipPath>
+</defs>
+</svg>
