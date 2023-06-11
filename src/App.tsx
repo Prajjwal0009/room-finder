@@ -10,6 +10,7 @@ import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import AdminDashboard from './component/Dashboard/AdminDashboard';
 import Room from './pages/Room/Room';
+import Area from './pages/Area/Area';
 
 function App(): JSX.Element {
   return (
@@ -31,6 +32,9 @@ function App(): JSX.Element {
         <Route path="/" element={<AdminDashboard />}>
           <Route path='/room' element={<Outlet />}>
             <Route index element={<Room />} />
+          </Route>
+          <Route path='/area' element={<Outlet />}>
+            <Route index element={<Area />} />
           </Route>
         </Route>
         <Route path='/login' element={<Login />} />

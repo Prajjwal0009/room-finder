@@ -7,14 +7,14 @@ const Dashboard = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex sticky top-0  w-full h-[1000px] overflow-hidden">
+        <div className="flex sticky top-0  w-full h-screen overflow-hidden">
             {/* Sidebar */}
             <div className="bg-gray-800 text-white h-[1000px] w-1/5 p-4 ">
                 <h2 className="text-2xl font-bold">ROOMFINDER</h2>
                 <ul className="mt-8">
-                    <li className="py-2 cursor-pointer" onClick={() => { navigate('/contact') }}>Dashboard</li>
+                    <li className="py-2 cursor-pointer" onClick={() => { navigate('/dashboard') }}>Dashboard</li>
                     <li className="py-2 cursor-pointer" onClick={() => { navigate('/room') }}>Rooms</li>
-                    <li className="py-2 cursor-pointer">Area</li>
+                    <li className="py-2 cursor-pointer" onClick={() => { navigate('/area') }}>Area</li>
                     <li className="py-2 cursor-pointer">Settings</li>
                 </ul>
             </div>
