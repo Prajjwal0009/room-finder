@@ -2,11 +2,15 @@ import React from 'react'
 import Divider from '../Reuseable/Divider'
 import Button from '../Reuseable/Button'
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate()
     const { register, handleSubmit } = useForm();
     const onSubmit = (data: any) => {
         console.log(data)
+        navigate('/admin')
+
     }
     return (
         <>

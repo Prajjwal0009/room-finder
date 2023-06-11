@@ -2,8 +2,10 @@ import React from 'react'
 import Button from '../Reuseable/Button'
 import Divider from '../Reuseable/Divider'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
+    const navigate = useNavigate()
     const { register, handleSubmit } = useForm()
     const onSubmit = (data: any) => {
         console.log(data)
@@ -34,7 +36,9 @@ const Signup = () => {
                             title="Submit"
                             onClick={handleSubmit(onSubmit)}
                         />
+
                     </div>
+                    <div className='absolute bottom-0 right-[300px] text-blue-600 italic underline cursor-pointer' onClick={() => navigate('/login')}>Proceed to Login</div>
                 </div>
             </div>
         </div>
