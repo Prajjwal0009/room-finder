@@ -65,9 +65,9 @@ function DataTable(props: any) {
     <>
       <div className=" w-full">
         <div className='w-full flex justify-between'>
-          <PageTitle
+          {/* <PageTitle
             pageTitle={tableName}
-          />
+          /> */}
          
         </div>
         <table className='w-full m-2'>
