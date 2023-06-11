@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
-import Dropdown from '../Reuseable/Dropdown';
+import DropdownAdmin from './DropdownAdmin';
 
 
 const Dashboard = () => {
@@ -14,9 +14,9 @@ const Dashboard = () => {
                 </div>
 
                 <div className='mr-10'>
-                    <Dropdown
+                    <DropdownAdmin
                         onClick={() => navigate('/login')}
-                        onClickSignup={() => navigate('/signup')}
+                        onClickSignup={() => navigate('/')}
                     />
                 </div>
             </div>
