@@ -30,7 +30,7 @@ const Contact = () => {
               </div>
               <div className="pt-4 flex items-center space-x-4">
                 <button className="bg-indigo-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none hover:bg-indigo-600 transition-colors duration-300">
-                  <span>Submit</span>
+                  <span onClick={() => alert('Your Request has been Submitted')}>Submit</span>
                 </button>
               </div>
             </div>
@@ -38,12 +38,12 @@ const Contact = () => {
         </div>
       </div>
     </div>
-    
+
   )
 }
 
 export default Contact
 
 
-    
+
 
