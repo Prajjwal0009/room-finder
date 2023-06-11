@@ -26,8 +26,8 @@ const Dashboard = () => {
         <div className='w-full'>
           <input type='search' className="h-[30px] p-2"  placeholder='searchHere' />
         </div>
-        <div><p className='text-gray-400 w-full'>Contact:anujmainali200@gmail.com/9876543210</p></div>
-        <div className='ml-10 w-full'>
+        <div><p className='text-gray-400 w-full flex items-center mr-12'>Contact:anujmainali200@gmail.com/9876543210</p></div>
+        <div className='mr-10'>
           <Dropdown
             onClick={() => navigate('/login')}
             onClickSignup={() => navigate('/signup')}
