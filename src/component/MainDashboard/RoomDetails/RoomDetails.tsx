@@ -69,7 +69,7 @@ const RoomDetails = () => {
                 <div className='p-10 grid grid-cols-2 w-full gap-4'>
                     <p>Location:</p><p className='ml-10'>Chabhil</p>
                     <p>Price:</p><p className='ml-10'>Rs 6000</p>
-                    <p>Description:</p><textarea className='border-2 border-black w-[400px] disabled h-[200px] ' placeholder='kvhhglvjvhkvjghkkjvhkkjgjvhhvlkhvlkkhvlkkh' />
+                    <p>Description:</p><p className=' w-[400px] p-2 h-[200px] ' >This room is the best which provide both water and electricity with good view</p>
                 </div>
                 <div className='mt-10'>
                     <Button
