@@ -1,8 +1,10 @@
 import React from 'react'
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
-const Card = () => {
+const Card = (props: any) => {
+    const { children } = props
     return (
         <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            {children}
             <a href="#">
                 <div className="shadow-blackA7 w-[250px] overflow-hidden rounded-md shadow-[0_2px_10px]">
                     <AspectRatio.Root ratio={20 / 10}>
