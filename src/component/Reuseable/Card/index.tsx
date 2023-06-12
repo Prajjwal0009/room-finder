@@ -10,7 +10,7 @@ const Card = (props: any) => {
                     <AspectRatio.Root ratio={20 / 10}>
                         <img
                             className="h-full w-full object-cover"
-                            src="https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80"
+                            src="https://th.bing.com/th/id/OIP.a-uRswGdYwSrnSSVCXgeUQHaE7?pid=ImgDet&w=1921&h=1279&rs=1"
                             alt="Landscape photograph by Tobias Tullius"
                         />
                     </AspectRatio.Root>

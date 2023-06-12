@@ -32,7 +32,9 @@ const RoomDetails = () => {
                 style={{ ...style, display: "block" }}
                 onClick={onClick}
             >
-                <img src={rightArrow} alt="Next" />
+                <img src={rightArrow} alt="Next" /><span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="black" width="25px" height="25px" viewBox="0 0 24 24" id="next" data-name="Line Color" className="icon line-color"><path id="primary" d="M17,12,5,21V3Z" className={"fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"} /></svg>
+                </span>
             </div>
         );
     };
@@ -48,16 +50,16 @@ const RoomDetails = () => {
 
     return (
         <div className='w-full flex'>
-            <div className='w-[350px]'>
+            <div className='w-[350px] bg-gray-300'>
                 <Slider {...settings}>
                     <div>
-                        <img src="https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80" alt="Image 1" />
+                        <img src="https://i.pinimg.com/736x/b7/78/6b/b7786b4f85bee0411ac72ac21d4fcfed.jpg" alt="Image 1" />
                     </div>
                     <div>
-                        <img src='https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80' alt="Image 2" />
+                        <img src='https://th.bing.com/th/id/OIP.4KtPsICVK-a16RfqH_zZIwHaE8?pid=ImgDet&rs=1' alt="Image 2" />
                     </div>
                     <div>
-                        <img src="https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80 " alt="Image 3" />
+                        <img src="https://th.bing.com/th/id/OIP.Z3QELZzPR0o9P2EV5YSCJwHaFj?pid=ImgDet&rs=1 " alt="Image 3" />
                     </div>
                 </Slider>
 
@@ -72,7 +74,7 @@ const RoomDetails = () => {
                 <div className='mt-10'>
                     <Button
                         title='BookNow'
-                        onClick={()=>navigate('/signup')}
+                        onClick={() => navigate('/signup')}
                     />
                 </div>
             </div>
