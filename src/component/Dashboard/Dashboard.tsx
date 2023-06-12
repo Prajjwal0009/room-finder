@@ -37,7 +37,7 @@ const Dashboard = () => {
           />
         </div>
       </div>
-      <div style={{ paddingTop: '90px', backgroundColor: "gray-100" }}>
+      <div style={{ paddingTop: '90px', backgroundColor: "gray" }}>
         <Outlet />
       </div>
     </>
