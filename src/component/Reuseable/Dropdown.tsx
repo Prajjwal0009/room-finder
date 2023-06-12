@@ -8,7 +8,7 @@ const Dropdown = (props: any) => {
         < Popover.Root >
             <Popover.Trigger asChild>
 
-                <button className='cursor-pointer'>Account</button>
+                <button className='text-white font-semibold cursor-pointer'>Account</button>
             </Popover.Trigger>
             <Popover.Portal>
                 <Popover.Content

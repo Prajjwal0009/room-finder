@@ -11,7 +11,7 @@ const Home = () => {
     return (
         <>
             <div className='absolute top-[60px] right-10'>
-                <select onChange={handleOptionChange}>
+                <select className = "w-full h-[200px]" onChange={handleOptionChange}>
                     <option value='Flat'>Flat</option>
                     <option value='1Room'>1Room</option>
                     <option value='2Room'>2Room</option>
