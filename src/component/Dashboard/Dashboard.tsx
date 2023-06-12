@@ -7,7 +7,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className='fixed top-0 left-0 w-full h-[60px] z-10 flex p-3 border border-black overflow-hidden justify-between bg-green-200'>
+      <div className='fixed top-0 left-0 w-full h-[60px] z-10 flex p-3 border border-black overflow-hidden justify-between bg-gray-800'>
         <div className='border ml-10'>
           RoomFinder
         </div>
@@ -37,7 +37,7 @@ const Dashboard = () => {
           />
         </div>
       </div>
-      <div style={{ paddingTop: '60px' }}>
+      <div style={{ paddingTop: '90px', backgroundColor: "gray-100" }}>
         <Outlet />
       </div>
     </>

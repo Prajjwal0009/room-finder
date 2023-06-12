@@ -10,8 +10,8 @@ const Home = () => {
 
     return (
         <>
-            <div className='absolute top-[60px] right-10'>
-                <select onChange={handleOptionChange}>
+            <div className='absolute top-[70px] right-10'>
+                <select className='w-[100px] h-[40px] text-xl text-white font-bold bg-gray-800' onChange={handleOptionChange}>
                     <option value='Flat'>Flat</option>
                     <option value='1Room'>1Room</option>
                     <option value='2Room'>2Room</option>
