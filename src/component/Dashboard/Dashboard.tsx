@@ -7,23 +7,23 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className='fixed top-0 left-0 w-full h-[60px] z-10 flex p-3 border border-black overflow-hidden justify-between bg-gray-800'>
-        <div className='border ml-10'>
+      <div className='fixed top-0 left-0 w-full h-[60px] z-10 flex p-3 border border-black overflow-hidden justify-between bg-gray-900'>
+        <div className='text-white font-semibold  ml-10'>
           RoomFinder
         </div>
         <div className='flex gap-4 ml-10 w-full'>
-          <div className='cursor-pointer' onClick={() => navigate('/')}>
+          <div className='text-white font-semibold cursor-pointer' onClick={() => navigate('/')}>
             Home
           </div>
-          <div className='cursor-pointer' onClick={() => navigate('aboutus')}>
+          <div className='text-white font-semibold cursor-pointer' onClick={() => navigate('aboutus')}>
             About
           </div>
-          <div className='cursor-pointer' onClick={() => navigate('contact')}>
+          <div className='text-white font-semibold cursor-pointer' onClick={() => navigate('contact')}>
             Contact Us
           </div>
         </div>
         <div className='w-full'>
-          <input type='search' className="h-[30px] p-2" placeholder='searchHere' />
+          <input type='search' className="rounded-md focus:outline-none h-[30px] p-2" placeholder='searchHere' />
         </div>
         <div>
           <p className='text-gray-400 w-full flex items-center mr-20'>
