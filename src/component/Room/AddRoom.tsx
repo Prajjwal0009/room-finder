@@ -45,7 +45,7 @@ const AddRoom = () => {
        </div>
        <div className='flex flex-col mt-3'>
       
-        <button className='bg-[#5B6AB0] p-2 rounded-md'>SAVE</button>
+        <button className='bg-red-200 p-2 rounded-md' onClick={() => navigate('/room')}>SAVE</button>
        </div>
         
     </div>

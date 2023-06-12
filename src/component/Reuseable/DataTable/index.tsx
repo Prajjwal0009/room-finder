@@ -75,7 +75,7 @@ function DataTable(props: any) {
 
         </div>
         <table className='w-full m-2'>
-          <thead className='bg-[#5c6bb0] text-white'>
+          <thead className='bg-[#7d4db0] text-white'>
             {table.getHeaderGroups().map(headerGroup => (
               <tr key={headerGroup.id} className=''>
                 {headerGroup.headers.map((header, index) => (

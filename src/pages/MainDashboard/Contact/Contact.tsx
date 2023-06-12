@@ -1,6 +1,6 @@
 import React from 'react'
 import loadable from "@loadable/component"
-const ContactComponent = loadable(() => import("../../component/Contact/Contact"));
+const ContactComponent = loadable(() => import("../../../component/MainDashboard/Contact/Contact"));
 
 
 

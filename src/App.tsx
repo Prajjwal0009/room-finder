@@ -6,13 +6,15 @@ import { BrowserRouter as Router, Route, Routes, Outlet } from 'react-router-dom
 import Dashboard from './pages/Dashboard/Dashboard';
 import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/Signup';
-import About from './pages/About/About';
-import Contact from './pages/Contact/Contact';
+import About from './pages/MainDashboard/About/About';
+import Contact from './pages/MainDashboard/Contact/Contact';
 import AdminDashboard from './component/Dashboard/AdminDashboard';
 import Room from './pages/Room/Room';
 import Area from './pages/Area/Area';
 import AddRoom from './pages/Room/AddRoom';
 import EditRoom from './pages/Room/EditRoom';
+import Home from './pages/MainDashboard/Home/Home';
+import RoomDetails from './pages/MainDashboard/RoomDetails/RoomDetails';
 
 function App(): JSX.Element {
   return (
@@ -20,7 +22,10 @@ function App(): JSX.Element {
       <Routes>
         <Route path="/" element={<Dashboard />}>
           <Route path='/home' element={<Outlet />}>
-            <Route index element={<Dashboard />} />
+            <Route index element={<Home />} />
+          </Route>
+          <Route path='/room-details' element={<Outlet />}>
+            <Route index element={<RoomDetails />} />
           </Route>
           <Route path='/aboutus' element={<Outlet />}>
             <Route index element={<About />} />
@@ -39,6 +44,8 @@ function App(): JSX.Element {
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/admin' element={<AdminDashboard />} />
+
         <Route path="/" element={<AdminDashboard />}>
           <Route path='/add-room' element={<AddRoom />} />
         </Route>
