@@ -9,7 +9,9 @@ const Contact = () => {
     alert('Your info has been submitted')
   }
   return (
-    <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+    <div className="min-h-screen bg-gray-100 py-6 flex flex-col  justify-center sm:py-12">
+      <img src='https://ap.rdcpix.com/779680209/03369f3ab67dd55cb296e98ee25fb0fdl-m4xd-w1020_h770_q80.jpg' alt='kjbhv' className='absolute w-full h-[700px] top-[55px]' />
+
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
         <div className="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
           <div className="max-w-md mx-auto">

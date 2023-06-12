@@ -21,7 +21,7 @@ function App(): JSX.Element {
     <Router>
       <Routes>
         <Route path="/" element={<Dashboard />}>
-          <Route path='/home' element={<Outlet />}>
+          <Route path='/' element={<Outlet />}>
             <Route index element={<Home />} />
           </Route>
           <Route path='/room-details' element={<Outlet />}>
