@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import NACell from "../Reuseable/DataTable/NACell";
 import DataTable from "../Reuseable/DataTable";
 import TableActionButton from "../Reuseable/TableActionButton";
+import { useNavigate } from "react-router-dom";
 // import TableActionButton from "../Reuseable/TableActionButton";
 
 const Room = (props: any) => {
+  const navigate = useNavigate();
   const defaultColumns: any = React.useMemo(() => [
     {
       header: 'FirstName',
@@ -41,8 +43,9 @@ const Room = (props: any) => {
       header: 'Action',
       accessorKey: 'id',
       cell: () => <>
-          <TableActionButton
-          />
+        <TableActionButton
+          editAction={'/edit-room'}
+        />
       </>
     },
 
@@ -52,9 +55,11 @@ const Room = (props: any) => {
     <>
       <DataTable
         columns={defaultColumns}
-   
-        // queryKey={"form"}
-        
+        title='AddRoom'
+        onClick={() => navigate('/add-room')}
+
+      // queryKey={"form"}
+
 
       />
     </>

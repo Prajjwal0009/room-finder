@@ -11,6 +11,8 @@ import Contact from './pages/Contact/Contact';
 import AdminDashboard from './component/Dashboard/AdminDashboard';
 import Room from './pages/Room/Room';
 import Area from './pages/Area/Area';
+import AddRoom from './pages/Room/AddRoom';
+import EditRoom from './pages/Room/EditRoom';
 
 function App(): JSX.Element {
   return (
@@ -26,8 +28,6 @@ function App(): JSX.Element {
           <Route path='/contact' element={<Outlet />}>
             <Route index element={<Contact />} />
           </Route>
-          {/* <Route path='/aboutus' element={<About />}/>
-            <Route path='/contactus' element={<Contact />}/> */}
         </Route>
         <Route path="/" element={<AdminDashboard />}>
           <Route path='/room' element={<Outlet />}>
@@ -39,7 +39,11 @@ function App(): JSX.Element {
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path="/admin" element={<AdminDashboard />}>
+        <Route path="/" element={<AdminDashboard />}>
+          <Route path='/add-room' element={<AddRoom />} />
+        </Route>
+        <Route path="/" element={<AdminDashboard />}>
+          <Route path='/edit-room' element={<EditRoom />} />
         </Route>
       </Routes>
     </Router>

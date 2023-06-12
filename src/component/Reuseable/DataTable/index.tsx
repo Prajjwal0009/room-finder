@@ -13,7 +13,7 @@ import PageTitle from '../PageTitle'
 import serverData from "./makeData.js"; // Import data from makeData.js
 
 function DataTable(props: any) {
-  const { columns, tableName, setIsOpenAdd } = props;
+  const { columns, tableName, setIsOpenAdd, title, onClick } = props;
   const [limit, setLimit] = useState(10)
   const [page, setPage] = useState(0)
   const [data, setData] = useState<any[]>([]);
@@ -65,10 +65,14 @@ function DataTable(props: any) {
     <>
       <div className=" w-full">
         <div className='w-full flex justify-between'>
-          {/* <PageTitle
+          <PageTitle
             pageTitle={tableName}
-          /> */}
-         
+          />
+          <Button
+            title={title}
+            onClick={onClick}
+          />
+
         </div>
         <table className='w-full m-2'>
           <thead className='bg-[#5c6bb0] text-white'>
