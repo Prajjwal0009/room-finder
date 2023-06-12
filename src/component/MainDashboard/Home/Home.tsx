@@ -25,7 +25,6 @@ const Home = () => {
                         <Card />
                     </>
                 )}
-
                 {selectedOption === '1Room' && (
                     <>
                         <Card />
@@ -34,7 +33,6 @@ const Home = () => {
                         <Card />
                     </>
                 )}
-
                 {selectedOption === '2Room' && (
                     <>
                         <Card />

@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import DropdownAdmin from './DropdownAdmin';
 import Divider from '../Reuseable/Divider';
 
 const Dashboard = () => {
     const navigate = useNavigate();
+    useEffect(() => {
+        // Modify browser history
+        window.history.pushState(null, document.title, window.location.href);
+        window.onpopstate = function () {
+            // Navigate forward
+            window.history.go(1);
+        };
+    }, []);
 
     return (
         <div className="flex w-full h-screen overflow-hidden">
@@ -24,6 +32,8 @@ const Dashboard = () => {
                 {/* Top Navigation Bar */}
                 <div className="bg-green-200 h-16 px-4 flex sticky top-0 left-0 items-center justify-between  left-1/5">
                     <h2 className="text-xl font-bold">Admin Dashboard</h2>
+                    <div className='flex absolute right-[90px] rounded-3xl items-center justify-center bg-red-400 text-indigo-600 font-bold text-xl border border-black w-[40px] h-[40px]'>A</div>
+
                     <DropdownAdmin
                         onClick={() => navigate('/login')}
                         onClickSignup={() => navigate('/signup')}
