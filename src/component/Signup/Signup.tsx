@@ -38,6 +38,8 @@ const Signup = () => {
                         />
 
                     </div>
+                    <div className='absolute bottom-0 left-[300px] text-blue-600 italic underline cursor-pointer' onClick={() => navigate('/')}>Back to Dashboard</div>
+
                     <div className='absolute bottom-0 right-[300px] text-blue-600 italic underline cursor-pointer' onClick={() => navigate('/login')}>Proceed to Login</div>
                 </div>
             </div>

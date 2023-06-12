@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Divider from '../Reuseable/Divider'
 import Button from '../Reuseable/Button'
 import { useForm } from 'react-hook-form';
@@ -16,16 +16,6 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);
 
-
-    useEffect(() => {
-        // Modify browser history
-        window.history.pushState(null, document.title, window.location.href);
-        window.onpopstate = function () {
-          // Navigate forward
-          window.history.go(1);
-        };
-      }, []);
-
     const handleLogin = () => {
         // Replace this condition with your actual login logic
         if (email === 'user@example.com' && password === 'password') {
@@ -34,7 +24,7 @@ const Login = () => {
         } if (email === 'admin@example.com' && password === 'admin') {
             setLoggedIn(true);
             navigate('/admin')
-        } else {
+        }else{
             alert("please enter valid email and Password")
         }
     };
