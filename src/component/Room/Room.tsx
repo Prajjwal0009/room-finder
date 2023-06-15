@@ -6,37 +6,28 @@ import { useNavigate } from "react-router-dom";
 // import TableActionButton from "../Reuseable/TableActionButton";
 
 const Room = (props: any) => {
+  const { roomData } = props
   const navigate = useNavigate();
   const defaultColumns: any = React.useMemo(() => [
     {
-      header: 'FirstName',
-      accessorKey: 'firstName',
+      header: 'room_type',
+      accessorKey: 'room_type',
       cell: NACell
     },
 
     {
-      header: 'LastName',
-      accessorKey: 'lastName',
+      header: 'location',
+      accessorKey: 'location',
       cell: NACell
     },
     {
-      header: 'Age',
-      accessorKey: 'age',
+      header: 'price',
+      accessorKey: 'price',
       cell: NACell
     },
     {
-      header: 'Visits',
-      accessorKey: 'visits',
-      cell: NACell
-    },
-    {
-      header: 'Progress',
-      accessorKey: 'progress',
-      cell: NACell
-    },
-    {
-      header: 'Status',
-      accessorKey: 'status',
+      header: 'description',
+      accessorKey: 'description',
       cell: NACell
     },
     {
@@ -55,6 +46,7 @@ const Room = (props: any) => {
     <>
       <DataTable
         columns={defaultColumns}
+        serverData={roomData}
         title='AddRoom'
         onClick={() => navigate('/add-room')}
 

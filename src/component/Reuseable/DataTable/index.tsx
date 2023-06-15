@@ -13,7 +13,7 @@ import PageTitle from '../PageTitle'
 import serverData from "./makeData.js"; // Import data from makeData.js
 
 function DataTable(props: any) {
-  const { columns, tableName, setIsOpenAdd, title, onClick } = props;
+  const { columns, tableName, setIsOpenAdd, title, onClick,serverData } = props;
   const [limit, setLimit] = useState(10)
   const [page, setPage] = useState(0)
   const [data, setData] = useState<any[]>([]);

@@ -15,45 +15,50 @@ import AddRoom from './pages/Room/AddRoom';
 import EditRoom from './pages/Room/EditRoom';
 import Home from './pages/MainDashboard/Home/Home';
 import RoomDetails from './pages/MainDashboard/RoomDetails/RoomDetails';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 function App(): JSX.Element {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Dashboard />}>
-          <Route path='/' element={<Outlet />}>
-            <Route index element={<Home />} />
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Dashboard />}>
+            <Route path='/' element={<Outlet />}>
+              <Route index element={<Home />} />
+            </Route>
+            <Route path='/room-details' element={<Outlet />}>
+              <Route index element={<RoomDetails />} />
+            </Route>
+            <Route path='/aboutus' element={<Outlet />}>
+              <Route index element={<About />} />
+            </Route>
+            <Route path='/contact' element={<Outlet />}>
+              <Route index element={<Contact />} />
+            </Route>
           </Route>
-          <Route path='/room-details' element={<Outlet />}>
-            <Route index element={<RoomDetails />} />
+          <Route path="/" element={<AdminDashboard />}>
+            <Route path='/room' element={<Outlet />}>
+              <Route index element={<Room />} />
+            </Route>
+            <Route path='/area' element={<Outlet />}>
+              <Route index element={<Area />} />
+            </Route>
           </Route>
-          <Route path='/aboutus' element={<Outlet />}>
-            <Route index element={<About />} />
-          </Route>
-          <Route path='/contact' element={<Outlet />}>
-            <Route index element={<Contact />} />
-          </Route>
-        </Route>
-        <Route path="/" element={<AdminDashboard />}>
-          <Route path='/room' element={<Outlet />}>
-            <Route index element={<Room />} />
-          </Route>
-          <Route path='/area' element={<Outlet />}>
-            <Route index element={<Area />} />
-          </Route>
-        </Route>
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/admin' element={<AdminDashboard />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/admin' element={<AdminDashboard />} />
 
-        <Route path="/" element={<AdminDashboard />}>
-          <Route path='/add-room' element={<AddRoom />} />
-        </Route>
-        <Route path="/" element={<AdminDashboard />}>
-          <Route path='/edit-room' element={<EditRoom />} />
-        </Route>
-      </Routes>
-    </Router>
+          <Route path="/" element={<AdminDashboard />}>
+            <Route path='/add-room' element={<AddRoom />} />
+          </Route>
+          <Route path="/" element={<AdminDashboard />}>
+            <Route path='/edit-room' element={<EditRoom />} />
+          </Route>
+        </Routes>
+      </Router>
+    </QueryClientProvider>
   );
 }
 
