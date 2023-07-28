@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import loadable from "@loadable/component"
+import useGetHook from '../../customHooks/useGetHook';
 const RoomComponent = loadable(() => import("../../component/Room/Room"));
 
 function App() {
@@ -19,9 +20,10 @@ function App() {
         }
     }
     console.log(roomData)
+    
     return (
         <RoomComponent
-        roomData={roomData}
+            roomData={roomData}
         />
     );
 }

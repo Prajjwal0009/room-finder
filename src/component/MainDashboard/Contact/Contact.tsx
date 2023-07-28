@@ -1,13 +1,9 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-const Contact = () => {
+const Contact = (props: any) => {
+  const { onSubmit } = props
   const { register, handleSubmit } = useForm();
-
-  const onSubmit = (data: any) => {
-    console.log(data)
-    alert('Your info has been submitted')
-  }
   return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col  justify-center sm:py-12">
       <img src='https://ap.rdcpix.com/779680209/03369f3ab67dd55cb296e98ee25fb0fdl-m4xd-w1020_h770_q80.jpg' alt='kjbhv' className='absolute w-full h-[700px] top-[55px]' />

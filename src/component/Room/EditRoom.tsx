@@ -1,12 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button from '../Reuseable/Button'
 import Divider from '../Reuseable/Divider'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
-const EditRoom = () => {
+const EditRoom = (props: any) => {
+    const { roomData } = props
+    console.log(roomData,"iii")
     const navigate = useNavigate()
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, setValue } = useForm({
+        defaultValues: {
+          category: roomData?.room_type || '', // Provide a default value in case roomData is undefined
+          location: roomData?.location || '',
+          description: roomData?.description || '',
+          price: roomData?.price || ''
+        }
+      });
+    
+      // If you want to set default values from roomData dynamically, you can use the setValue function
+      useEffect(() => {
+        setValue('category', roomData?.room_type || '');
+        setValue('location', roomData?.location || '');
+        setValue('description', roomData?.description || '');
+        setValue('price', roomData?.price || '');
+      }, [roomData, setValue]);
     const onSubmit = (data: any) => {
         console.log(data)
     }
@@ -20,7 +37,7 @@ const EditRoom = () => {
                 </div>
                 <div className='flex flex-col mt-3'>
                     <label htmlFor="category" className='text-left font-semibold'>Choose Room <span className='text-red-500'>*</span></label>
-                    <select name="category" id="category" className='rounded-md p-1 border-x-2 border-t-2'>
+                    <select id="category" className='rounded-md p-1 border-x-2 border-t-2' {...register('category')}>
                         <option>Flat</option>
                         <option>1 room</option>
                         <option>2 room</option>
@@ -31,17 +48,17 @@ const EditRoom = () => {
                     <h3 className='text-left font-semibold'>Room details <span className='text-red-500'>*</span></h3>
                     <div className='border border-[#BFBFBF] p-4 bg-[#EEF1F8] flex flex-col'>
                         <label htmlFor="name" className='text-left'>Location</label>
-                        <input type="text" className='rounded-sm border-y border-[#BFBFBF] p-1' />
+                        <input type="text" className='rounded-sm border-y border-[#BFBFBF] p-1' {...register('location')} />
                         <label htmlFor="room-image" className='text-left'>Room Image</label>
                         <input type="file" className='rounded-sm border-y border-[#BFBFBF] p-1' />
                         <label htmlFor="description" className='text-left mt-3'>Description</label>
                         <div className='bg-[#D9DDE7] rounded-sm p-2 font-semibold'>Text Editor Button</div>
-                        <textarea name="description" id="description" cols={30} rows={7} />
+                        <textarea id="description" cols={30} rows={7} {...register('description')} />
                     </div>
                 </div>
                 <div className='flex flex-col mt-3'>
                     <label htmlFor="price" className='text-left font-semibold'>Price <span className='text-red-500'>*</span></label>
-                    <input type="text" className='rounded-sm border border-[#BFBFBF] p-1 px-2' />
+                    <input type="text" className='rounded-sm border border-[#BFBFBF] p-1 px-2' {...register('price')} />
                 </div>
                 <div className='flex flex-col mt-3'>
 

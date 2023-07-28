@@ -16,6 +16,7 @@ import EditRoom from './pages/Room/EditRoom';
 import Home from './pages/MainDashboard/Home/Home';
 import RoomDetails from './pages/MainDashboard/RoomDetails/RoomDetails';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import ContactUs from './pages/ContactUs/ContactUs';
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,9 @@ function App(): JSX.Element {
             <Route path='/room' element={<Outlet />}>
               <Route index element={<Room />} />
             </Route>
+            <Route path='/contactUs' element={<Outlet />}>
+              <Route index element={<ContactUs />} />
+            </Route>
             <Route path='/area' element={<Outlet />}>
               <Route index element={<Area />} />
             </Route>
@@ -54,7 +58,7 @@ function App(): JSX.Element {
             <Route path='/add-room' element={<AddRoom />} />
           </Route>
           <Route path="/" element={<AdminDashboard />}>
-            <Route path='/edit-room' element={<EditRoom />} />
+            <Route path='/edit-room/:id' element={<EditRoom />} />
           </Route>
         </Routes>
       </Router>

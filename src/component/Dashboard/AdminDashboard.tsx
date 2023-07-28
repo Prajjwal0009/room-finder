@@ -23,6 +23,7 @@ const Dashboard = () => {
                     <li className="py-2 cursor-pointer" onClick={() => { navigate('/dashboard') }}>Dashboard</li>
                     <li className="py-2 cursor-pointer" onClick={() => { navigate('/room') }}>Rooms</li>
                     <li className="py-2 cursor-pointer" onClick={() => { navigate('/area') }}>Area</li>
+                    <li className="py-2 cursor-pointer" onClick={() => { navigate('/contactus') }}>ContactUs</li>
                     <li className="py-2 cursor-pointer">Settings</li>
                 </ul>
             </div>

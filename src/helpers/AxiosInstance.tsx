@@ -14,15 +14,15 @@ export const instance = Axios.create({
   },
 });
 
-const USER_MANAGEMENT_API_ROOT: string = "https://usermanagement.dibsolutions.com.au/api";
-//create axios instance
-export const userManangementInstance = Axios.create({
-  baseURL: `${USER_MANAGEMENT_API_ROOT}`,
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `JWT ${accessToken()}`,
-  },
-});
+// const USER_MANAGEMENT_API_ROOT: string = "https://usermanagement.dibsolutions.com.au/api";
+// //create axios instance
+// export const userManangementInstance = Axios.create({
+//   baseURL: `${USER_MANAGEMENT_API_ROOT}`,
+//   headers: {
+//     "Content-Type": "application/json",
+//     Authorization: `JWT ${accessToken()}`,
+//   },
+// });
 
 // create axios instance for form data to upload file
 export const formDataInstance = Axios.create({
@@ -110,28 +110,28 @@ export const getApiData = async (url: any, param = null) => {
   return response;
 };
 
-export const userManagementGetApiData = async (url: any, param = null) => {
-  let response;
-  try {
-    response = await userManangementInstance({
-      method: "GET",
-      url: `${url}`,
-      params: param,
-      // headers: {
-      //   Authorization: `JWT ${accessToken()}`,
-      // },
-      transformResponse: [
-        function (responseData) {
-          // Do whatever you want to transform the data
-          return JSON.parse(responseData);
-        },
-      ],
-    });
-  } catch (e: any) {
-    return e.response;
-  }
-  return response;
-};
+// export const userManagementGetApiData = async (url: any, param = null) => {
+//   let response;
+//   try {
+//     response = await userManangementInstance({
+//       method: "GET",
+//       url: `${url}`,
+//       params: param,
+//       // headers: {
+//       //   Authorization: `JWT ${accessToken()}`,
+//       // },
+//       transformResponse: [
+//         function (responseData) {
+//           // Do whatever you want to transform the data
+//           return JSON.parse(responseData);
+//         },
+//       ],
+//     });
+//   } catch (e: any) {
+//     return e.response;
+//   }
+//   return response;
+// };
 //post data to api
 export const postApiData = async (data: any) => {
   const { url, formData, setError } = data;

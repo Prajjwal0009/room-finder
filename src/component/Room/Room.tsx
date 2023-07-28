@@ -3,6 +3,7 @@ import NACell from "../Reuseable/DataTable/NACell";
 import DataTable from "../Reuseable/DataTable";
 import TableActionButton from "../Reuseable/TableActionButton";
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 // import TableActionButton from "../Reuseable/TableActionButton";
 
 const Room = (props: any) => {
@@ -26,18 +27,21 @@ const Room = (props: any) => {
       cell: NACell
     },
     {
-      header: 'description',
-      accessorKey: 'description',
-      cell: NACell
+      header: 'Date',
+      accessorKey: 'added_date',
+      cell: (cellProps: any) => <>
+        {moment(cellProps.getValue()).format('MMMM Do YYYY, h:mm:ss a')}
+      </>
     },
     {
       header: 'Action',
       accessorKey: 'id',
-      cell: () => <>
-        <TableActionButton
-          editAction={'/edit-room'}
-        />
-      </>
+      cell: (row: any) => {
+        console.log(row?.row?.id, "cellProps")
+        return (<TableActionButton
+          editAction={`/edit-room/${row?.row?.id}`}
+        />)
+      }
     },
 
   ], [])
