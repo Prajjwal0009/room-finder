@@ -17,6 +17,11 @@ const ContactUs = (props: any) => {
             cell: NACell
         },
         {
+            header: 'PhoneNumber',
+            accessorKey: 'phone',
+            cell: NACell
+        },
+        {
             header: 'Message',
             accessorKey: 'message',
             cell: NACell
@@ -29,7 +34,7 @@ const ContactUs = (props: any) => {
             <DataTable
                 columns={defaultColumns}
                 serverData={contactUsData}
-                // onClick={() => navigate('/add-room')}
+            // onClick={() => navigate('/add-room')}
 
             // queryKey={"form"}
 

@@ -8,7 +8,7 @@ const ContactComponent = loadable(() => import("../../../component/MainDashboard
 const Contact = () => {
   const postData = async (dataToSend: any) => {
     try {
-      const response = await fetch('http://localhost:8000/api/v1/contact-us/', {
+      const response = await fetch('http://localhost:8000/api/contact/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Set the appropriate content-type for your API
@@ -27,7 +27,7 @@ const Contact = () => {
     postData({ key: 'value' }); // Replace { key: 'value' } with your actual data to send.
   }, []);
   const onSubmit = (data: any) => {
-    postData({ name: data?.name, email: data?.email, message: data?.message });
+    postData({ name: data?.name, email: data?.email, message: data?.message, phone: data?.phone });
     alert('Your information is Saved')
     window.location.reload();
   }

@@ -8,11 +8,11 @@ const Dashboard = () => {
   return (
     <>
       <div className='fixed top-0 left-0 w-full h-[60px] z-10 flex p-3 border border-black overflow-hidden justify-between bg-gray-900'>
-        <div className='text-white font-semibold  ml-10'>
+        <div className='text-white font-semibold  ml-10' onClick={() => navigate('/')}>
           RoomFinder
         </div>
         <div className='flex gap-4 ml-10 w-full'>
-          <div className='text-white font-semibold cursor-pointer' onClick={() => navigate('/')}>
+          <div className='text-white font-semibold cursor-pointer' onClick={() => navigate('/home')}>
             Home
           </div>
           <div className='text-white font-semibold cursor-pointer' onClick={() => navigate('aboutus')}>

@@ -32,6 +32,10 @@ const Contact = (props: any) => {
                   <label htmlFor="message" className="leading-loose">Message</label>
                   <textarea id="message" {...register('message')} placeholder="Your Message" className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" />
                 </div>
+                <div className="flex flex-col">
+                  <label htmlFor="phone" className="leading-loose">Phone</label>
+                  <input type="text" id="phone" {...register('phone')} placeholder="Your Number" className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+                </div>
               </div>
               <div className="pt-4 flex items-center space-x-4">
                 <button onClick={handleSubmit(onSubmit)} className="bg-indigo-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none hover:bg-indigo-600 transition-colors duration-300">

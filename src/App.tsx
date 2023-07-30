@@ -17,6 +17,7 @@ import Home from './pages/MainDashboard/Home/Home';
 import RoomDetails from './pages/MainDashboard/RoomDetails/RoomDetails';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import ContactUs from './pages/ContactUs/ContactUs';
+import Maps from './pages/MainDashboard/Map/Maps';
 
 const queryClient = new QueryClient();
 
@@ -27,9 +28,11 @@ function App(): JSX.Element {
         <Routes>
           <Route path="/" element={<Dashboard />}>
             <Route path='/' element={<Outlet />}>
+              <Route index element={<Maps />} />
+            </Route><Route path='/home' element={<Outlet />}>
               <Route index element={<Home />} />
             </Route>
-            <Route path='/room-details' element={<Outlet />}>
+            <Route path='/room-details/:id' element={<Outlet />}>
               <Route index element={<RoomDetails />} />
             </Route>
             <Route path='/aboutus' element={<Outlet />}>

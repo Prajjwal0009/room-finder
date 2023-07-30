@@ -5,28 +5,31 @@ import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 const EditRoom = (props: any) => {
-    const { roomData } = props
-    console.log(roomData,"iii")
+    const { roomData, onSubmit } = props
+    console.log(roomData, "iii")
     const navigate = useNavigate()
     const { register, handleSubmit, setValue } = useForm({
         defaultValues: {
-          category: roomData?.room_type || '', // Provide a default value in case roomData is undefined
-          location: roomData?.location || '',
-          description: roomData?.description || '',
-          price: roomData?.price || ''
+            category: roomData?.room_type || '', // Provide a default value in case roomData is undefined
+            location: roomData?.location || '',
+            description: roomData?.description || '',
+            price: roomData?.price || '',
+            Longitude: roomData?.longitude || "",
+            Latitude: roomData?.latitude || "",
+
         }
-      });
-    
-      // If you want to set default values from roomData dynamically, you can use the setValue function
-      useEffect(() => {
+    });
+
+    // If you want to set default values from roomData dynamically, you can use the setValue function
+    useEffect(() => {
         setValue('category', roomData?.room_type || '');
         setValue('location', roomData?.location || '');
         setValue('description', roomData?.description || '');
         setValue('price', roomData?.price || '');
-      }, [roomData, setValue]);
-    const onSubmit = (data: any) => {
-        console.log(data)
-    }
+        setValue('Longitude', roomData?.longitude || '');
+        setValue('Latitude', roomData?.latitude || '');
+    }, [roomData, setValue]);
+
     return (
         <>
             <div className='bg-white rounded-lg p-4'>
@@ -38,9 +41,9 @@ const EditRoom = (props: any) => {
                 <div className='flex flex-col mt-3'>
                     <label htmlFor="category" className='text-left font-semibold'>Choose Room <span className='text-red-500'>*</span></label>
                     <select id="category" className='rounded-md p-1 border-x-2 border-t-2' {...register('category')}>
-                        <option>Flat</option>
-                        <option>1 room</option>
-                        <option>2 room</option>
+                        <option>flat</option>
+                        <option>1Room</option>
+                        <option>2Room</option>
 
                     </select>
                 </div>
@@ -60,9 +63,17 @@ const EditRoom = (props: any) => {
                     <label htmlFor="price" className='text-left font-semibold'>Price <span className='text-red-500'>*</span></label>
                     <input type="text" className='rounded-sm border border-[#BFBFBF] p-1 px-2' {...register('price')} />
                 </div>
+                <div className='flex mt-3 justify-between w-full'>
+                    <div><p>Latitude</p>
+                        <input type="text" className='rounded-sm w-full border border-[#BFBFBF] p-1 px-2' {...register('Latitude')} />
+                    </div>
+                    <div><p>Longitude</p>
+                        <input type="text" className='rounded-sm w-full border border-[#BFBFBF] p-1 px-2' {...register('Longitude')} />
+                    </div>
+                </div>
                 <div className='flex flex-col mt-3'>
 
-                    <button className='bg-red-200 p-2 rounded-md' onClick={() => navigate('/room')}>SAVE</button>
+                    <button className='bg-red-200 p-2 rounded-md' onClick={handleSubmit(onSubmit)}>SAVE</button>
                 </div>
 
             </div>

@@ -14,7 +14,7 @@ const ContactUs = () => {
 
     async function fetchRoomData() {
         try {
-            const response = await fetch('http://localhost:8000/api/v1/contact-us/');
+            const response = await fetch('http://localhost:8000/api/contact/');
             const data = await response.json();
             setContactUsData(data);
         } catch (error) {
@@ -27,7 +27,7 @@ const ContactUs = () => {
 
     return (
         <ContactUsComponent
-        contactUsData={contactUsData} />
+            contactUsData={contactUsData} />
     )
 }
 

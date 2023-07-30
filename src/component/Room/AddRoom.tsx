@@ -22,9 +22,9 @@ const AddRoom = (props: any) => {
         <div className='flex flex-col mt-3'>
           <label htmlFor="category" className='text-left font-semibold'>Choose Room <span className='text-red-500'>*</span></label>
           <select id="category" className='rounded-md p-1 border-x-2 border-t-2' {...register('category')}>
-            <option>Flat</option>
-            <option>1 room</option>
-            <option>2 room</option>
+            <option>flat</option>
+            <option>1Room</option>
+            <option>2Room</option>
 
           </select>
         </div>
@@ -43,6 +43,14 @@ const AddRoom = (props: any) => {
         <div className='flex flex-col mt-3'>
           <label htmlFor="price" className='text-left font-semibold'>Price <span className='text-red-500'>*</span></label>
           <input type="text" className='rounded-sm border border-[#BFBFBF] p-1 px-2' {...register('price')} />
+        </div>
+        <div className='flex mt-3 justify-between'>
+        <div><p>Latitude</p>
+            <input type="text" className='rounded-sm border border-[#BFBFBF] p-1 px-2' {...register('Latitude')} />
+          </div>
+          <div><p>Longitude</p>
+            <input type="text" className='rounded-sm border border-[#BFBFBF] p-1 px-2' {...register('Longitude')} />
+          </div>
         </div>
         <div className='flex flex-col mt-3'>
           <button className='bg-red-200 p-2 rounded-md' onClick={handleSubmit(onSubmit)}>SAVE</button>

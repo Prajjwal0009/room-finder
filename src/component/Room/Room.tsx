@@ -4,11 +4,18 @@ import DataTable from "../Reuseable/DataTable";
 import TableActionButton from "../Reuseable/TableActionButton";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
+import Modal from "../Reuseable/Modal";
+import ConfirmDialog from "../Reuseable/ConFirmDialog";
 // import TableActionButton from "../Reuseable/TableActionButton";
 
 const Room = (props: any) => {
-  const { roomData } = props
+
+  const { roomData, setSelectedObject, deleteDataFromAPI, selectedObject, isOpen, setIsOpen } = props
+
   const navigate = useNavigate();
+  const handleDelete = () => {
+    deleteDataFromAPI(selectedObject)
+  }
   const defaultColumns: any = React.useMemo(() => [
     {
       header: 'room_type',
@@ -37,13 +44,14 @@ const Room = (props: any) => {
       header: 'Action',
       accessorKey: 'id',
       cell: (row: any) => {
-        console.log(row?.row?.id, "cellProps")
         return (<TableActionButton
-          editAction={`/edit-room/${row?.row?.id}`}
+          value={row?.row?.original?.id}
+          editAction={`/edit-room/${row?.row?.original?.id}`}
+          setOpenPopup={setIsOpen}
+          setSelectedObject={setSelectedObject}
         />)
       }
     },
-
   ], [])
 
   return (
@@ -57,6 +65,16 @@ const Room = (props: any) => {
       // queryKey={"form"}
 
 
+      />
+      <Modal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        children={<ConfirmDialog
+          setIsOpen={setIsOpen}
+          deleteDataFromAPI={deleteDataFromAPI}
+          handleDelete={handleDelete}
+        />}
+        title="Delete"
       />
     </>
   );

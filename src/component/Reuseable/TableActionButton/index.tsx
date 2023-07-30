@@ -5,7 +5,7 @@ import EditIcon from "../../../assets/icons/EditIcon.svg";
 
 
 const TableActionButton = (props: any) => {
-  const { viewAction, editAction, setOpenPopup, setSelectedObject, value, setOpenPopups } = props
+  const { viewAction, editAction, setOpenPopup, setSelectedObject, value, setOpenPopups,deleteDataFromAPI } = props
   const navigate = useNavigate()
 
 
