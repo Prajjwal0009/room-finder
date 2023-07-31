@@ -4,35 +4,44 @@ import CardRoom from './CardRoom';
 import LocationComponent from './LocationComponent';
 
 const Maps = (props: any) => {
-  const { roomData, setSelectRoomType, selectRoomType } = props
-  // const [selectedOption, setSelectedOption] = useState('flat');
+  const { roomData, setSelectRoomType, selectRoomType, setInputValues, inputValues, setInputLocation, inputLocation } = props
   const [latitude, setLatitude] = useState<number | null>(null);
   const [longitude, setLongitude] = useState<number | null>(null);
+  const handleKeyDown = (event: any) => {
+    if (event.keyCode === 13) { // Check if Enter key is pressed
+      console.log('Input value:', inputLocation);
+    }
+  };
+  const handlePriceChange = (event: any) => {
+    const { value } = event.target;
+    setInputValues(value);
+  };
+  const handleLocationChange = (event: any) => {
+    const { value } = event.target;
+    setInputLocation(value)
+  }
   const handleOptionChange = (event: any) => {
     setSelectRoomType(event.target.value);
   };
-
+  const handleChange = (items: any) => {
+    setLongitude(items?.longitude)
+    setLatitude(items?.latitude)
+  }
   const initialCenter = [latitude || 27.6894279, longitude || 85.345417];
-  const locations = roomData.map((room: any) => {
+  const locations = roomData?.map((room: any) => {
     if (room.map_location && room.map_location.latitude && room.map_location.longitude) {
       return [room.map_location.latitude, room.map_location.longitude];
     } else {
       return [0, 0];
     }
-  });
+  }) || [];
+
 
   const [inputValue, setInputValue] = useState('');
   const [destination, setDestination] = useState(initialCenter);
 
-  const handleSearch = () => {
-    const [latitude, longitude] = inputValue.split(',');
-    if (latitude && longitude) {
-      setDestination([parseFloat(latitude), parseFloat(longitude)]);
-    }
-  };
-
   return (
-    <div style={{ display: 'flex', height: '100vh' }}>
+    <div style={{ display: 'flex', height: '90vh' }}>
       <div style={{ flex: '4', position: 'relative', }}>
         <LeafletMap center={destination} locations={locations} roomData={roomData} />
       </div>
@@ -48,14 +57,20 @@ const Maps = (props: any) => {
         }}
       >
         <div>
-          <div> <select className="w-[120px] h-[40px] text-xl text-white font-bold bg-gray-800" onChange={handleOptionChange} >
+          <div className='flex w-full justify-between gap-2 '> <select className="w-[120px] h-[40px] text-xl text-white font-bold bg-gray-800" onChange={handleOptionChange} >
             <option value='flat'>flat</option>
             <option value='1Room'>1Room</option>
             <option value='2Room'>2Room</option>
-          </select></div>
+          </select><input type='text' placeholder='price' className='w-40 p-1 border-2' value={inputValues}
+            onChange={handlePriceChange} onKeyDown={handleKeyDown}
+            /></div>
+          <input type='text' placeholder='Location' className='w-60 mt-2 border-2 p-1'
+            onChange={handleLocationChange} onKeyDown={handleKeyDown}
+          />
           {roomData?.map((items: any, index: number) => (
-            <div className='w-full mt-4'>
-              <CardRoom selectRoomType={selectRoomType} roomData={items} />
+            <div className='w-full mt-4 cursor-pointer'>
+              <CardRoom selectRoomType={selectRoomType} roomData={items} onClick={() => handleChange(items)} />
+
             </div>
           ))
           }

@@ -5,21 +5,25 @@ const MapsComponent = loadable(() => import("../../../component/MainDashboard/Ma
 const Maps = () => {
   const [popupId, setPopupId] = useState("")
   const [selectRoomType, setSelectRoomType] = useState('flat')
-  console.log(selectRoomType,"selectRoomType")
+  const [inputValues, setInputValues] = useState('');
+  const [inputLocation, setInputLocation] = useState('');
+
+
+  console.log(selectRoomType, "selectRoomType")
   const [mapData, setMapData] = useState<any>([]);
   useEffect(() => {
     fetchRoomData();
-  }, [selectRoomType]);
+  }, [selectRoomType, inputValues,inputLocation]);
   async function fetchRoomData() {
     try {
-      const response = await fetch(`http://localhost:8000/api/rooms/?room_type__in=${selectRoomType}`);
+      const response = await fetch(`http://localhost:8000/api/rooms/?room_type__in=${selectRoomType}&price__range=${inputValues}&location__icontains=${inputLocation}`);
       const data = await response.json();
       setMapData(data);
     } catch (error) {
       console.log('Error:', error);
     }
   }
-  console.log(mapData,"datas")
+  console.log(mapData, "datas")
   return (
     <MapsComponent
       roomData={mapData}
@@ -27,6 +31,10 @@ const Maps = () => {
       popupId={popupId}
       setSelectRoomType={setSelectRoomType}
       selectRoomType={selectRoomType}
+      setInputValues={setInputValues}
+      inputValues={inputValues}
+      setInputLocation={setInputLocation}
+      inputLocation={inputLocation}
     />
   )
 }

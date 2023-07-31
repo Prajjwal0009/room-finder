@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import LocationComponent from './LocationComponent'
 
 const CardRoom = (props: any) => {
-  const { selectRoomType, roomData } = props
+  const { selectRoomType, roomData, onClick } = props
   return (
-    <div className='w-full h-[80px] bg-gray-200 '>
+    <div className='w-full h-[80px] bg-gray-200 ' onClick={onClick}>
       <div className='w-full flex '>
         <div className='p-2 w-16 bg-red-600 h-full flex items-center justify-center '>
           {selectRoomType}
