@@ -44,8 +44,15 @@ const AddRoom = (props: any) => {
           <label htmlFor="price" className='text-left font-semibold'>Price <span className='text-red-500'>*</span></label>
           <input type="text" className='rounded-sm border border-[#BFBFBF] p-1 px-2' {...register('price')} />
         </div>
-        <div className='flex mt-3 justify-between'>
-        <div><p>Latitude</p>
+        <div className='text-gray-600'>Charges:</div>
+        <div className='flex justify-between p-4'>
+        <div className='flex gap-2'><input type='checkbox' {...register('is_electriciy_charge')}/><label>Electicity</label></div>
+        <div className='flex gap-2'><input type='checkbox' {...register('is_drainage_available')}/><label>Wastage</label></div>
+        <div className='flex gap-2'><input type='checkbox' {...register('is_drinking_water')}/><label>Drinking Water</label></div>
+        <div className='flex gap-2'><input type='checkbox' {...register('is_water_supply')}/><label>Other Water</label></div>
+        </div>
+        <div className='flex justify-between'>
+          <div><p>Latitude</p>
             <input type="text" className='rounded-sm border border-[#BFBFBF] p-1 px-2' {...register('Latitude')} />
           </div>
           <div><p>Longitude</p>

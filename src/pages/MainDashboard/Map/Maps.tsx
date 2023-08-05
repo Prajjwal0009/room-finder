@@ -13,7 +13,7 @@ const Maps = () => {
   const [mapData, setMapData] = useState<any>([]);
   useEffect(() => {
     fetchRoomData();
-  }, [selectRoomType, inputValues,inputLocation]);
+  }, [selectRoomType, inputValues, inputLocation]);
   async function fetchRoomData() {
     try {
       const response = await fetch(`http://localhost:8000/api/rooms/?room_type__in=${selectRoomType}&price__range=${inputValues}&location__icontains=${inputLocation}`);

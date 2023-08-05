@@ -50,7 +50,7 @@ const EditRoom = () => {
     postData({ key: 'value' });
   }, []);
   const onSubmit = (data: any) => {
-    postData({ room_type: data?.category, description: data?.description, location: data?.location, price: data?.price, latitude: data?.Latitude, longitude: data?.Longitude }, "someValue");
+    postData({ room_type: data?.category, description: data?.description, location: data?.location, price: data?.price, latitude: data?.Latitude, longitude: data?.Longitude, is_water_supply: data?.is_water_supply, is_drainage_available: data?.is_drainage_available, is_drinking_water: data?.is_drinking_water, is_electriciy_charge: data?.is_electriciy_charge }, "someValue");
     navigate("/room")
   }
   return (

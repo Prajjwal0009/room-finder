@@ -7,7 +7,8 @@ import moment from "moment";
 import Modal from "../Reuseable/Modal";
 import ConfirmDialog from "../Reuseable/ConFirmDialog";
 // import TableActionButton from "../Reuseable/TableActionButton";
-
+import tickIcon from '../../assets/icons/tick.svg'
+import crossIcon from '../../assets/icons/cross.svg'
 const Room = (props: any) => {
 
   const { roomData, setSelectedObject, deleteDataFromAPI, selectedObject, isOpen, setIsOpen } = props
@@ -39,6 +40,29 @@ const Room = (props: any) => {
       cell: (cellProps: any) => <>
         {moment(cellProps.getValue()).format('MMMM Do YYYY, h:mm:ss a')}
       </>
+    },
+    {
+      header: 'Electricity',
+      accessorKey: 'is_electriciy_charge',
+      cell: ( row:any, getValue:any ) => (row?.row?.original?.is_electriciy_charge===true ? <img src={tickIcon} alt="" /> : <img src={crossIcon} alt="" />)
+
+
+    },{
+      header: 'Drainage and wastage',
+      accessorKey: 'is_drainage_available',
+      cell: ( row:any, getValue:any ) => (row?.row?.original?.is_drainage_available===true ? <img src={tickIcon} alt="" /> : <img src={crossIcon} alt="" />)
+
+    },{
+      header: 'Drinking Water',
+      accessorKey: 'is_drinking_water',
+      cell: ( row:any, getValue:any ) => (row?.row?.original?.is_drinking_water===true ? <img src={tickIcon} alt="" /> : <img src={crossIcon} alt="" />)
+
+      
+    },{
+      header: 'Other Water',
+      accessorKey: 'is_water_supply',
+      cell: ( row:any, getValue:any ) => (row?.row?.original?.is_water_supply===true ? <img src={tickIcon} alt="" /> : <img src={crossIcon} alt="" />)
+
     },
     {
       header: 'Action',

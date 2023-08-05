@@ -7,6 +7,7 @@ import rightArrow from '../../../assets/icons/addIcon.svg'
 
 import Button from '../../Reuseable/Button';
 import { useNavigate } from 'react-router-dom';
+import { classNames } from '../../../utils/classNames';
 
 
 const RoomDetails = (props: any) => {
@@ -33,7 +34,7 @@ const RoomDetails = (props: any) => {
         style={{ ...style, display: "block" }}
         onClick={onClick}
       >
-        
+
       </div>
     );
   };
@@ -68,7 +69,11 @@ const RoomDetails = (props: any) => {
         <div className='p-10 grid grid-cols-2 w-full gap-4'>
           <p>Location:</p><p className='ml-10'>{singleRoomDetails?.location}</p>
           <p>Price:</p><p className='ml-10'>Rs {singleRoomDetails?.price}</p>
-          <p>Description:</p><p className=' w-[400px] p-2 h-[200px] ' >{singleRoomDetails?.description}</p>
+          <p>Description:</p><p className='ml-9 ' >{singleRoomDetails?.description}</p>
+          <p>Electricity Charge:</p><p className={classNames(singleRoomDetails?.is_electriciy_charge === true?"ml-9 text-gray-600":"ml-9 text-red-400")}>{singleRoomDetails?.is_electriciy_charge === true ? "included charge" : "notinclude"}</p>
+          <p>Drainage & Wastage :</p><p className={classNames(singleRoomDetails?.is_drainage_available === true?"ml-9 text-gray-600":"ml-9 text-red-400")}>{singleRoomDetails?.is_drainage_available === true ? "included the charge" : "notinclude"}</p>
+          <p>Drinking Water Charge:</p><p className={classNames(singleRoomDetails?.is_drinking_water === true?"ml-9 text-gray-600":"ml-9 text-red-400")}>{singleRoomDetails?.is_drinking_water === true ? "Charges will be added" : "Please manage by yourself"}</p>
+          <p>Other Water Charge:</p><p className={classNames(singleRoomDetails?.is_water_supply === true?"ml-9 text-gray-600":"ml-9 text-red-400")}>{singleRoomDetails?.is_water_supply === true ? "Charges Will be done according to usebiltiy" : "Not included you should manage"}</p>
         </div>
         <div className='mt-10'>
           <Button
